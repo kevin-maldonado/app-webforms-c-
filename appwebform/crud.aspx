@@ -374,7 +374,7 @@
                                           <asp:Button ID="btnBorrar" runat="server" CssClass=" btn btn-danger" OnClick="btnBorrar_Click" Text="Borrar" />
                                 </div>
                            
-                             <!--alerta-->
+                             <!--Mensaje de alerta-->
                             <div class="alert alert-primary" role="alert">
                                      <asp:Label ID="lblMensaje" runat="server" style="font-weight: 600;" class="alert alert-success" role="alert"></asp:Label>
                             </div>
@@ -390,8 +390,8 @@
                                                 <!--parte del gridwieb-->
                                                      <tr>
                                              
-                                                         <td class="auto-style3">
-                                                             <asp:GridView ID="GridDatos" runat="server" AllowPaging="True" AlternatingRowStyle-CssClass="alt" AutoGenerateColumns="False" CellPadding="4" CssClass="auto-style5" DataSourceID="LinqDataSource" ForeColor="#7D8586" GridLines="None" Height="364px" OnPageIndexChanging="GridDatos_PageIndexChanging" OnSelectedIndexChanged="GridDatos_SelectedIndexChanged" PagerStyle-CssClass="pgr" PageSize="7" Width="100%">
+                                                         <td >
+                                                             <asp:GridView ID="GridDatos" runat="server" AllowPaging="True" AlternatingRowStyle-CssClass="alt" AutoGenerateColumns="False" CellPadding="4" CssClass="table table-striped table-bordered table-hover" DataSourceID="LinqDataSource" ForeColor="#7D8586" GridLines="None" Height="364px" OnPageIndexChanging="GridDatos_PageIndexChanging" OnSelectedIndexChanged="GridDatos_SelectedIndexChanged" PagerStyle-CssClass="pagination" PageSize="4" Width="100%">
                                                                  <AlternatingRowStyle BackColor="White" />
                                                                  <Columns>
                                                                      <asp:BoundField DataField="Codigo" HeaderText="Codigo" ReadOnly="True" SortExpression="Codigo" />
@@ -400,18 +400,23 @@
                                                                      <asp:BoundField DataField="Telefono" HeaderText="Telefono" ReadOnly="True" SortExpression="Telefono" />
                                                                      <asp:BoundField DataField="Edad" HeaderText="Edad" ReadOnly="True" SortExpression="Edad" />
                                                                  </Columns>
-                                                                 <FooterStyle BackColor="#023FFF" Font-Bold="True" ForeColor="White" />
-                                                                 <HeaderStyle BackColor="#023FFF" Font-Bold="True" ForeColor="White" />
-                                                                 <PagerStyle BackColor="#023FFF" ForeColor="#333333" HorizontalAlign="Center" />
+                                                                 <FooterStyle BackColor="#4e73df" Font-Bold="True" ForeColor="White" />
+                                                                 <HeaderStyle BackColor="#4e73df" Font-Bold="True" ForeColor="White" />
+                                                                 <PagerSettings FirstPageText="Primera" LastPageText="Ultima" NextPageText="Siguiente" PreviousPageText="Anterior" />
+                                                                 <PagerStyle BackColor="#4e73df" ForeColor="White" HorizontalAlign="Center" CssClass="pagination-mg" />
                                                                  <RowStyle BackColor="#F3F6F7" ForeColor="#333333" />
                                                                  <SelectedRowStyle BackColor="#9DA1A2" Font-Bold="True" ForeColor="Navy" />
                                                                  <SortedAscendingCellStyle BackColor="#F3F6F7" />
                                                                  <SortedAscendingHeaderStyle BackColor="#4D0000" />
                                                                  <SortedDescendingCellStyle BackColor="#E8EBEC" />
                                                                  <SortedDescendingHeaderStyle BackColor="#820000" />
+                                                                 
                                                              </asp:GridView>
-                                                             <asp:LinqDataSource ID="LinqDataSource" runat="server" AutoPage="False" ContextTypeName="LINQ_DDM.DataClassesDataContext" EntityTypeName="" OnSelecting="LinqDataSource_Selecting" Select="new (Codigo, Nombres, Apellidos, Telefono, Edad)" TableName="Alumnos">
-                                                             </asp:LinqDataSource>
+
+                                                             <!--PARTE DEL PAGIADOR-->
+                                                                 <asp:LinqDataSource ID="LinqDataSource" runat="server"  AutoPage="False" ContextTypeName="LINQ_DDM.DataClassesDataContext" EntityTypeName="" OnSelecting="LinqDataSource_Selecting" Select="new (Codigo, Nombres, Apellidos, Telefono, Edad)" TableName="Alumnos">
+                                                                 </asp:LinqDataSource>
+                                                             
                                                          </td>
                                                      </tr>                          
                                                </table>
@@ -421,7 +426,7 @@
                             </div>
 
 
-                             <!--Ejemplo tabla con DataTables-->
+                             <!--Ejemplo tabla con DataTables para implementar-->
                             <div class="container">
                                 <div class="row">
                                         <div class="col-lg-12">
