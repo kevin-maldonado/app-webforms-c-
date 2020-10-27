@@ -10,7 +10,7 @@ namespace appwebform
     public partial class crud : System.Web.UI.Page
     {
         DataClassesDataContext BaseDatos = new DataClassesDataContext();
-        public const int PAGE_SIZE = 4;
+        public const int PAGE_SIZE = 10;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)

@@ -12,7 +12,7 @@
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">app <sup>appkevin</sup></div>
+        <div class="sidebar-brand-text mx-3">GMDigital</div>
       </a>
 
       <!-- Divider -->
@@ -383,6 +383,7 @@
 
                             <div class="container">
                                 <div class="row">
+                                    <div class="col-sm-12 col-md-6"><div class="dataTables_length" id="example_length"><label>Mostrar <select name="example_length" aria-controls="example" class="custom-select custom-select-sm form-control form-control-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> registros</label></div></div><div class="col-sm-12 col-md-6"><div id="example_filter" class="dataTables_filter"><label>Buscar:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="example"></label></div></div>
                                     <div class="col-lg-12">
                                         <div class="table-responsive"> 
                                                 <table id="example1" class="table table-striped table-bordered" style="width:100%">
@@ -391,7 +392,7 @@
                                                      <tr>
                                              
                                                          <td >
-                                                             <asp:GridView ID="GridDatos" runat="server" AllowPaging="True" AlternatingRowStyle-CssClass="alt" AutoGenerateColumns="False" CellPadding="4" CssClass="table table-striped table-bordered table-hover" DataSourceID="LinqDataSource" ForeColor="#7D8586" GridLines="None" Height="364px" OnPageIndexChanging="GridDatos_PageIndexChanging" OnSelectedIndexChanged="GridDatos_SelectedIndexChanged" PagerStyle-CssClass="pagination" PageSize="4" Width="100%">
+                                                             <asp:GridView ID="GridDatos" runat="server" AllowPaging="True" AlternatingRowStyle-CssClass="alt" AutoGenerateColumns="False" CellPadding="4" CssClass="table table-striped table-bordered table-hover" DataSourceID="LinqDataSource" ForeColor="#7D8586" GridLines="None" Height="364px" OnPageIndexChanging="GridDatos_PageIndexChanging" OnSelectedIndexChanged="GridDatos_SelectedIndexChanged" PagerStyle-CssClass="pagination" PageSize="10" Width="100%">
                                                                  <AlternatingRowStyle BackColor="White" />
                                                                  <Columns>
                                                                      <asp:BoundField DataField="Codigo" HeaderText="Codigo" ReadOnly="True" SortExpression="Codigo" />
@@ -427,7 +428,7 @@
 
 
                              <!--Ejemplo tabla con DataTables para implementar-->
-                            <div class="container">
+                           <%-- <div class="container">
                                 <div class="row">
                                         <div class="col-lg-12">
                                             <div class="table-responsive">        
@@ -609,7 +610,7 @@
                                             </div>
                                         </div>
         </div>  
-                            </div>   
+                            </div> --%>  
                      </div>
                      </div>
                      
