@@ -11,7 +11,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>app Ejemplo</title>
+  <title>GMDigital</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -19,7 +19,7 @@
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
-   
+   <link href="../css/datatables.min.css" rel="stylesheet" />
 
     <!--datables CSS básico-->
     <link rel="stylesheet" type="text/css" href="datatables/datatables.min.css"/>
@@ -92,6 +92,13 @@
     <script type="text/javascript" src="datatables/datatables.min.js"></script>    
      
     <script type="text/javascript" src="main.js"></script>
+    
+    <script src="../Scripts/datatables.min.js"></script>
+    <script src="../Scripts/jQuery-2.1.4.min.js"></script>
+
+         
+      
+ 
 
 </body>
 
@@ -100,21 +107,3 @@
 
 
 
-<%--<!DOCTYPE html>
-
-<html>
-<head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
-        </div>
-    </form>
-</body>
-</html>--%>

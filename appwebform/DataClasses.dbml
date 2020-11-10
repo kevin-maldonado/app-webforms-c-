@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DemoLINQ" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-Q10ABDO;Initial Catalog=DemoLINQ;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DemoLINQConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-Q10ABDO;Initial Catalog=DemoLINQ;Integrated Security=True" SettingsObjectName="appwebform.Properties.Settings" SettingsPropertyName="Valor" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Alumnos" Member="Alumnos">
     <Type Name="Alumnos">
       <Column Name="Codigo" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -38,5 +38,19 @@
     <Parameter Name="telefono" Type="System.String" DbType="VarChar(12)" />
     <Parameter Name="edad" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GetAlumnos" Method="GetAlumnos">
+    <ElementType Name="GetAlumnosResult">
+      <Column Name="Codigo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Nombres" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Apellidos" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Telefono" Type="System.String" DbType="VarChar(12) NOT NULL" CanBeNull="false" />
+      <Column Name="Edad" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetCustomersPageWise" Method="GetCustomersPageWise">
+    <Parameter Name="PageIndex" Parameter="pageIndex" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PageSize" Parameter="pageSize" Type="System.Int32" DbType="Int" />
+    <Parameter Name="RecordCount" Parameter="recordCount" Type="System.Int32" DbType="Int" Direction="InOut" />
   </Function>
 </Database>

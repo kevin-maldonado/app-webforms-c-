@@ -17,6 +17,7 @@ namespace appwebform
             {
                 btnBorrar.Attributes.Add("OnClick", "return confirm('¿Desea eliminar el Cliente?');");
                 Carga();
+                BindGrid();
             }
 
         }
@@ -141,8 +142,33 @@ namespace appwebform
         {
 
         }
+        //para filtrar por nombres
+        protected void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            string client = Textfiltro.Text;
+
+            DataClassesDataContext db = new DataClassesDataContext();
+
+            GridDatos.DataSource = from Alumnos in db.Alumnos
+                                  where Alumnos.Nombres == client
+                                  orderby Alumnos.Nombres
+                                  select Alumnos;
+            GridDatos.DataBind();
+
+            //reset page index to 0
+            GridDatos.PageIndex = 0;
+
+
+        }
+        //metodo para filtrar datos por nombres
+        private void BindGrid()
+        {
+            DataClassesDataContext db = new DataClassesDataContext();
+
+            GridDatos.DataSource = from Alumnos in db.Alumnos
+                                  orderby Alumnos.Nombres
+                                  select Alumnos;
+            GridDatos.DataBind();
+        }
     }
 }
-
-
-

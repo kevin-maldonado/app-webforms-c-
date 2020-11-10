@@ -36,7 +36,7 @@ namespace appwebform
     #endregion
 		
 		public DataClassesDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["DemoLINQConnectionString"].ConnectionString, mappingSource)
+				base(global::appwebform.Properties.Settings.Default.Valor, mappingSource)
 		{
 			OnCreated();
 		}
@@ -99,6 +99,20 @@ namespace appwebform
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), codigo, nombres, apellidos, telefono, edad);
 			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetAlumnos")]
+		public ISingleResult<GetAlumnosResult> GetAlumnos()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<GetAlumnosResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetCustomersPageWise")]
+		public void GetCustomersPageWise([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PageIndex", DbType="Int")] System.Nullable<int> pageIndex, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PageSize", DbType="Int")] System.Nullable<int> pageSize, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RecordCount", DbType="Int")] ref System.Nullable<int> recordCount)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), pageIndex, pageSize, recordCount);
+			recordCount = ((System.Nullable<int>)(result.GetParameterValue(2)));
 		}
 	}
 	
@@ -274,6 +288,104 @@ namespace appwebform
 		private int _Edad;
 		
 		public sp_BuscarResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codigo", DbType="Int NOT NULL")]
+		public int Codigo
+		{
+			get
+			{
+				return this._Codigo;
+			}
+			set
+			{
+				if ((this._Codigo != value))
+				{
+					this._Codigo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombres", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Nombres
+		{
+			get
+			{
+				return this._Nombres;
+			}
+			set
+			{
+				if ((this._Nombres != value))
+				{
+					this._Nombres = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Apellidos", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Apellidos
+		{
+			get
+			{
+				return this._Apellidos;
+			}
+			set
+			{
+				if ((this._Apellidos != value))
+				{
+					this._Apellidos = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Telefono", DbType="VarChar(12) NOT NULL", CanBeNull=false)]
+		public string Telefono
+		{
+			get
+			{
+				return this._Telefono;
+			}
+			set
+			{
+				if ((this._Telefono != value))
+				{
+					this._Telefono = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Edad", DbType="Int NOT NULL")]
+		public int Edad
+		{
+			get
+			{
+				return this._Edad;
+			}
+			set
+			{
+				if ((this._Edad != value))
+				{
+					this._Edad = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GetAlumnosResult
+	{
+		
+		private int _Codigo;
+		
+		private string _Nombres;
+		
+		private string _Apellidos;
+		
+		private string _Telefono;
+		
+		private int _Edad;
+		
+		public GetAlumnosResult()
 		{
 		}
 		

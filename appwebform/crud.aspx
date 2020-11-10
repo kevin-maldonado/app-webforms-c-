@@ -1,5 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/page.Master" AutoEventWireup="true" CodeBehind="crud.aspx.cs" Inherits="appwebform.crud" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style type="text/css">
+        .auto-style1 {
+            left: 0px;
+            top: -1px;
+            height: 25px;
+        }
+    </style>
 </asp:Content>
 
 
@@ -101,7 +108,7 @@
       </li>
 
       <!-- Nav Item - Tables -->
-      <li class="nav-item active">
+      <li class="nav-item ">
         <a class="nav-link" href="tables.aspx">
           <i class="fas fa-fw fa-table"></i>
           <span>Tables</span></a>
@@ -111,10 +118,10 @@
       <hr class="sidebar-divider d-none d-md-block">
 
       <!-- CRUD -->
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="crud.aspx">
           <i class="fas fa-fw fa-table"></i>
-          <span>CRUD Kevin</span></a>
+          <span>CRUD GMDigital</span></a>
       </li>
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
@@ -383,7 +390,16 @@
 
                             <div class="container">
                                 <div class="row">
-                                    <div class="col-sm-12 col-md-6"><div class="dataTables_length" id="example_length"><label>Mostrar <select name="example_length" aria-controls="example" class="custom-select custom-select-sm form-control form-control-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> registros</label></div></div><div class="col-sm-12 col-md-6"><div id="example_filter" class="dataTables_filter"><label>Buscar:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="example"></label></div></div>
+                                    <div class="col-sm-12 col-md-6"><div class="dataTables_length" id="example_length"><label>Mostrar <select name="example_length" aria-controls="example" class="custom-select custom-select-sm form-control form-control-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> registros</label>
+                                                                    </div></div><div class="auto-style1">
+                                          <%-- <%--filtracion de datos--%>    
+                                        <div id="example_filter" class="dataTables_filter">
+                                            <label>Buscar:
+                                                <asp:TextBox ID="Textfiltro" runat="server" class="form-control" placeholder="Nombres" ></asp:TextBox></label>
+                                            <asp:Button ID="btnfilter" runat="server" CssClass=" btn btn-secondary" OnClick="btnFiltrar_Click" Text="Buscar" />
+                                        </div>
+
+                                        </div>
                                     <div class="col-lg-12">
                                         <div class="table-responsive"> 
                                                 <table id="example1" class="table table-striped table-bordered" style="width:100%">
@@ -695,7 +711,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span> GMDigital&copy; 2020</span>
+            <span> GMDigital &copy; 2020</span>
           </div>
         </div>
       </footer>
