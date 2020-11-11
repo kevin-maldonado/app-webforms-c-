@@ -356,7 +356,7 @@
                                                      <tr>
                                              
                                                          <td >
-                                                             <asp:GridView ID="gdvLista" runat="server" AllowPaging="True" AutoGenerateColumns="False" OnPageIndexChanged="gdvLista_PageIndexChanged" OnPageIndexChanging="gdvLista_PageIndexChanging" Width="999px">
+                                                            <%-- <asp:GridView ID="gdvLista" runat="server" AllowPaging="True" AutoGenerateColumns="False" OnPageIndexChanged="gdvLista_PageIndexChanged" OnPageIndexChanging="gdvLista_PageIndexChanging" Width="999px">
                                                                     <Columns>
                                                                         <asp:BoundField DataField="Codigo" HeaderText="Codigo" />
                                                                         <asp:BoundField DataField="Nombres" HeaderText="Nombres" />
@@ -364,9 +364,31 @@
                                                                         <asp:BoundField DataField="Telefono" HeaderText="Telefono" />
                                                                         <asp:BoundField DataField="Edad" HeaderText="Edad" />
                                                                     </Columns>
-                                                               </asp:GridView>
+                                                               </asp:GridView>--%>
 
-                                                             
+
+
+<%--                                                             tabla ejemplo 2--%>
+
+                                                             <asp:GridView AllowPaging="True" AutoGenerateColumns="False" DataSourceID="LinqDataSource1" ID="gdvLista" PageSize="<%# PAGE_SIZE %>" runat="server" Width="276px">
+
+                                                                    <Columns>                                     
+                                                                        <asp:BoundField DataField="Codigo" HeaderText="Codigo" ReadOnly="True" SortExpression="Codigo"/>
+                                                                        <asp:BoundField DataField="Nombres" HeaderText="Nombres" ReadOnly="True" SortExpression="Nombres"/>
+                                                                        <asp:BoundField DataField="Apellidos" HeaderText="Apellidos"ReadOnly="True" SortExpression="Apellidos" />
+                                                                        <asp:BoundField DataField="Telefono" HeaderText="Telefono" ReadOnly="True" SortExpression="Telefono"/>
+                                                                        <asp:BoundField DataField="Edad" HeaderText="Edad" ReadOnly="True" SortExpression="Edad"/>
+                                                                    </Columns>
+
+                                                                </asp:GridView>
+
+                                                                <asp:LinqDataSource AutoPage="False" ContextTypeName="DataClassesDataContext" EntityTypeName=""
+
+                                                                    ID="LinqDataSource1" OnSelecting="LinqDataSource1_Selecting" runat="server" Select="new (Codigo, Nombres, Apellidos, Telefono, Edad)"
+
+                                                                    TableName="Alumnos">
+
+                                                                </asp:LinqDataSource>
                                                              
                                                          </td>
                                                      </tr>                          

@@ -1,8 +1,8 @@
 ﻿using System;
-//using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
-//using System.Web;
-//using System.Web.UI;
+using System.Web;
+using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace appwebform
@@ -10,25 +10,39 @@ namespace appwebform
     public partial class crud : System.Web.UI.Page
     {
         DataClassesDataContext BaseDatos = new DataClassesDataContext();
-        public const int PAGE_SIZE = 10;
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 btnBorrar.Attributes.Add("OnClick", "return confirm('¿Desea eliminar el Cliente?');");
                 Carga();
-                BindGrid();
+                //BindGrid();
             }
 
         }
 
+        public const int PAGE_SIZE = 10;
         protected void LinqDataSource_Selecting(object sender, LinqDataSourceSelectEventArgs e)
         {
-            var data = from alum in BaseDatos.Alumnos select alum;
-            e.Arguments.TotalRowCount = data.Count();
-            data = data.Skip(GridDatos.PageIndex * PAGE_SIZE).Take(PAGE_SIZE);
-            e.Result = data;
+            // LINQ query
+
+            var query = from alumnos in BaseDatos.Alumnos select alumnos;
+
+            // Set the total count
+
+            // so GridView knows how many pages to create
+
+            e.Arguments.TotalRowCount = query.Count();
+
+            // Get only the rows we need for the page requested
+
+            query = query.Skip(GridDatos.PageIndex * PAGE_SIZE).Take(PAGE_SIZE);
+
+            e.Result = query;
         }
+
+
         void Carga()
         {
             this.GridDatos.DataBind();
@@ -145,30 +159,30 @@ namespace appwebform
         //para filtrar por nombres
         protected void btnFiltrar_Click(object sender, EventArgs e)
         {
-            string client = Textfiltro.Text;
+            //string client = Textfiltro.Text;
 
-            DataClassesDataContext db = new DataClassesDataContext();
+            //DataClassesDataContext db = new DataClassesDataContext();
 
-            GridDatos.DataSource = from Alumnos in db.Alumnos
-                                  where Alumnos.Nombres == client
-                                  orderby Alumnos.Nombres
-                                  select Alumnos;
-            GridDatos.DataBind();
+            //GridDatos.DataSource = from Alumnos in db.Alumnos
+            //                      where Alumnos.Nombres == client
+            //                      orderby Alumnos.Nombres
+            //                      select Alumnos;
+            //GridDatos.DataBind();
 
-            //reset page index to 0
-            GridDatos.PageIndex = 0;
+            ////reset page index to 0
+            //GridDatos.PageIndex = 0;
 
 
         }
         //metodo para filtrar datos por nombres
-        private void BindGrid()
-        {
-            DataClassesDataContext db = new DataClassesDataContext();
+        //private void BindGrid()
+        //{
+        //    DataClassesDataContext db = new DataClassesDataContext();
 
-            GridDatos.DataSource = from Alumnos in db.Alumnos
-                                  orderby Alumnos.Nombres
-                                  select Alumnos;
-            GridDatos.DataBind();
-        }
+        //    GridDatos.DataSource = from Alumnos in db.Alumnos
+        //                          orderby Alumnos.Nombres
+        //                          select Alumnos;
+        //    GridDatos.DataBind();
+        //}
     }
 }

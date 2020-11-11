@@ -408,7 +408,9 @@
                                                      <tr>
                                              
                                                          <td >
-                                                             <asp:GridView ID="GridDatos" runat="server" AllowPaging="True" AlternatingRowStyle-CssClass="alt" AutoGenerateColumns="False" CellPadding="4" CssClass="table table-striped table-bordered table-hover" DataSourceID="LinqDataSource" ForeColor="#7D8586" GridLines="None" Height="364px" OnPageIndexChanging="GridDatos_PageIndexChanging" OnSelectedIndexChanged="GridDatos_SelectedIndexChanged" PagerStyle-CssClass="pagination" PageSize="10" Width="100%">
+                                                             <asp:GridView 
+                                                                 AllowPaging="True" AutoGenerateColumns="False" DataSourceID="LinqDataSource" ID="GridDatos" PageSize="<%# PAGE_SIZE %>" runat="server" Width="100%"
+                                                                 >
                                                                  <AlternatingRowStyle BackColor="White" />
                                                                  <Columns>
                                                                      <asp:BoundField DataField="Codigo" HeaderText="Codigo" ReadOnly="True" SortExpression="Codigo" />
@@ -431,7 +433,9 @@
                                                              </asp:GridView>
 
                                                              <!--PARTE DEL PAGIADOR-->
-                                                                 <asp:LinqDataSource ID="LinqDataSource" runat="server"  AutoPage="False" ContextTypeName="LINQ_DDM.DataClassesDataContext" EntityTypeName="" OnSelecting="LinqDataSource_Selecting" Select="new (Codigo, Nombres, Apellidos, Telefono, Edad)" TableName="Alumnos">
+                                                                 <asp:LinqDataSource ID="LinqDataSource" runat="server"  AutoPage="False" ContextTypeName="LINQ_DDM.DataClassesDataContext" EntityTypeName="" 
+                                                                     OnSelecting="LinqDataSource_Selecting" Select="new (Codigo, Nombres, Apellidos, Telefono, Edad)" TableName="Alumnos">
+                                                                                                
                                                                  </asp:LinqDataSource>
                                                              
                                                          </td>
