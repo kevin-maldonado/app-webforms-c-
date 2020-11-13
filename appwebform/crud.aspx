@@ -516,7 +516,6 @@
                                                         <td>2012/10/13</td>
                                                         <td>$132,000</td>
                                                     </tr>
-
                                                     <tr>
                                                         <td>Bruno Nash</td>
                                                         <td>Software Engineer</td>
@@ -787,7 +786,6 @@
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CRUD LINQ TO SQL<br />
                     </td>
                 </tr>
-
                 <tr>
                     <td style="background-image: url('Imagenes/1.png')" class="auto-style4">
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -842,7 +840,6 @@
                             <asp:Button ID="Button2" runat="server" OnClick="btnBuscar_Click" Text="Buscar" CssClass=" btn btn-secondary" />
                             <asp:Button ID="Button3" runat="server" OnClick="btnActualizar_Click" Text="Actualizar" CssClass="btn btn-info"/>
                             <asp:Button ID="Button4" runat="server" OnClick="btnBorrar_Click" Text="Borrar" CssClass=" btn btn-danger" />
-
                         </div>
                         
       
@@ -852,17 +849,13 @@
                     <td colspan="2" style="text-align: center; background-image: url('Imagenes/1.png');">
                         <br />
                         
-
                         <asp:Label ID="Label11" runat="server" style="font-weight: 600;" class="alert alert-success" role="alert"></asp:Label>
                     </td>
                 </tr>
                 <!--parte del gridwieb-->
                 <tr>
-
                     <td style="background-image: url('Imagenes/Soft.png');" class="auto-style4">&nbsp;</td>
                     <td style="background-image: url('Imagenes/Soft.png');" class="auto-style3">
-
-
                         <asp:GridView ID="GridView1" runat="server" CellPadding="4" DataSourceID="LinqDataSource" AutoGenerateColumns="False"
                              OnPageIndexChanging="GridDatos_PageIndexChanging" AllowPaging="True" ForeColor="#7D8586" GridLines="None" CssClass="auto-style5" PagerStyle-CssClass="pgr" Height="364px" Width="535px" OnSelectedIndexChanged="GridDatos_SelectedIndexChanged" AlternatingRowStyle-CssClass="alt" PageSize="4"  >
                             <AlternatingRowStyle BackColor="White" />

@@ -316,7 +316,7 @@
           <!-- Page Heading -->
           <h1 class="h3 mb-2 text-gray-800">Tables</h1>
           <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
-
+          
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
@@ -343,6 +343,7 @@
                                             <label>Buscar:
                                                 <asp:TextBox ID="Textfiltro" runat="server" class="form-control" placeholder="Ingrese los Nombres" ></asp:TextBox></label>
                                             <asp:Button ID="btnfilter" runat="server" CssClass=" btn btn-secondary" OnClick="btnFiltrar_Click" Text="Buscar" />
+                                            <br />
                                         </div>
 
                                         </div>
@@ -356,7 +357,8 @@
                                                      <tr>
                                              
                                                          <td >
-                                                            <%-- <asp:GridView ID="gdvLista" runat="server" AllowPaging="True" AutoGenerateColumns="False" OnPageIndexChanged="gdvLista_PageIndexChanged" OnPageIndexChanging="gdvLista_PageIndexChanging" Width="999px">
+
+                                                             <asp:GridView ID="gdvLista" runat="server" AllowPaging="True" AutoGenerateColumns="False" OnPageIndexChanged="gdvLista_PageIndexChanged" OnPageIndexChanging="gdvLista_PageIndexChanging" Width="999px">
                                                                     <Columns>
                                                                         <asp:BoundField DataField="Codigo" HeaderText="Codigo" />
                                                                         <asp:BoundField DataField="Nombres" HeaderText="Nombres" />
@@ -364,31 +366,10 @@
                                                                         <asp:BoundField DataField="Telefono" HeaderText="Telefono" />
                                                                         <asp:BoundField DataField="Edad" HeaderText="Edad" />
                                                                     </Columns>
-                                                               </asp:GridView>--%>
+                                                                    <PagerSettings FirstPageText="Primera" LastPageText="Anterior" Mode="NumericFirstLast" NextPageText="Siguiente" PreviousPageText="Ultima" />
+                                                               </asp:GridView>
 
-
-
-<%--                                                             tabla ejemplo 2--%>
-
-                                                             <asp:GridView AllowPaging="True" AutoGenerateColumns="False" DataSourceID="LinqDataSource1" ID="gdvLista" PageSize="<%# PAGE_SIZE %>" runat="server" Width="276px">
-
-                                                                    <Columns>                                     
-                                                                        <asp:BoundField DataField="Codigo" HeaderText="Codigo" ReadOnly="True" SortExpression="Codigo"/>
-                                                                        <asp:BoundField DataField="Nombres" HeaderText="Nombres" ReadOnly="True" SortExpression="Nombres"/>
-                                                                        <asp:BoundField DataField="Apellidos" HeaderText="Apellidos"ReadOnly="True" SortExpression="Apellidos" />
-                                                                        <asp:BoundField DataField="Telefono" HeaderText="Telefono" ReadOnly="True" SortExpression="Telefono"/>
-                                                                        <asp:BoundField DataField="Edad" HeaderText="Edad" ReadOnly="True" SortExpression="Edad"/>
-                                                                    </Columns>
-
-                                                                </asp:GridView>
-
-                                                                <asp:LinqDataSource AutoPage="False" ContextTypeName="DataClassesDataContext" EntityTypeName=""
-
-                                                                    ID="LinqDataSource1" OnSelecting="LinqDataSource1_Selecting" runat="server" Select="new (Codigo, Nombres, Apellidos, Telefono, Edad)"
-
-                                                                    TableName="Alumnos">
-
-                                                                </asp:LinqDataSource>
+                                                             
                                                              
                                                          </td>
                                                      </tr>                          
@@ -398,7 +379,6 @@
                                 </div>
                             </div>
            <%-- <div class="card-body">
-
                 
               <div class="table-responsive">
                 <div class="container">
@@ -459,7 +439,6 @@
                                                         <td>2012/10/13</td>
                                                         <td>$132,000</td>
                                                     </tr>
-
                                                     <tr>
                                                         <td>Bruno Nash</td>
                                                         <td>Software Engineer</td>

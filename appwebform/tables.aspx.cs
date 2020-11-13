@@ -9,42 +9,15 @@ namespace appwebform
 {
     public partial class tables : System.Web.UI.Page
     {
-        DataClassesDataContext db = new DataClassesDataContext();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack) 
+            if (!Page.IsPostBack)
             {
                 GetAlumnos();
             }
 
         }
-        
 
-        public const int PAGE_SIZE = 10;
-
-        protected void LinqDataSource1_Selecting(object sender, LinqDataSourceSelectEventArgs e)
-
-        {
-
-            // LINQ query
-
-            var query = from m in db.Alumnos
-
-                        select m;
-
-            // Set the total count
-
-            // so GridView knows how many pages to create
-
-            e.Arguments.TotalRowCount = query.Count();
-
-            // Get only the rows we need for the page requested
-
-            query = query.Skip(gdvLista.PageIndex * PAGE_SIZE).Take(PAGE_SIZE);
-
-            e.Result = query;
-
-        }
         private void GetAlumnos()
         {
             var data = new DataClassesDataContext();
@@ -53,9 +26,9 @@ namespace appwebform
 
 
         }
-        protected void gdvLista_PageIndexChanged(object sender,EventArgs e)
+        protected void gdvLista_PageIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         protected void gdvLista_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -73,9 +46,9 @@ namespace appwebform
             DataClassesDataContext db = new DataClassesDataContext();
 
             gdvLista.DataSource = from Alumnos in db.Alumnos
-                                   where Alumnos.Nombres == client
-                                   orderby Alumnos.Codigo
-                                   select Alumnos;
+                                  where Alumnos.Nombres == client
+                                  orderby Alumnos.Nombres
+                                  select Alumnos;
             gdvLista.DataBind();
 
             //reset page index to 0
@@ -89,14 +62,14 @@ namespace appwebform
             DataClassesDataContext db = new DataClassesDataContext();
 
             gdvLista.DataSource = from Alumnos in db.Alumnos
-                                   orderby Alumnos.Nombres
-                                   select Alumnos;
+                                  orderby Alumnos.Nombres
+                                  select Alumnos;
             gdvLista.DataBind();
         }
-        
 
 
         
+
 
     }
 }

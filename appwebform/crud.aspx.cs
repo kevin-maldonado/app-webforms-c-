@@ -10,13 +10,14 @@ namespace appwebform
     public partial class crud : System.Web.UI.Page
     {
         DataClassesDataContext BaseDatos = new DataClassesDataContext();
-        
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
                 btnBorrar.Attributes.Add("OnClick", "return confirm('¿Desea eliminar el Cliente?');");
                 Carga();
+                
 
             }
 
@@ -147,7 +148,8 @@ namespace appwebform
             {
                 GridDatos.PageIndex = e.NewPageIndex;
                 this.GridDatos.DataBind();
-
+            
+               
             }
             catch (Exception ex)
             {
@@ -160,25 +162,30 @@ namespace appwebform
 
         }
         //para filtrar por nombres
+        
         protected void btnFiltrar_Click(object sender, EventArgs e)
         {
 
-            DataClassesDataContext db = new DataClassesDataContext();
-
-            ////reset page index to 0
-            //GridDatos.PageIndex = 0;
-            int codi = int.Parse(this.Textfiltro.Text);
-            var query = from alumnos in db.Alumnos
-                        where alumnos.Codigo == codi
-                        select alumnos;
-            
-             this.GridDatos.DataBind();
-
-            //reset page index to 0
-           
+            try
+            {
+                int codi = int.Parse(this.Textfiltro.Text);
+                var xi = from x in BaseDatos.Alumnos
+                         where x.Codigo == codi
+                         select x;
+                
+                GridDatos.DataBind();
+            }
+            catch (Exception ex)
+            {
+                lblMensaje.Text = ex.Message.ToString();
+            }
 
 
         }
+        
+
+
+
 
         protected void Timer1_Tick(object sender, EventArgs e)
         {
