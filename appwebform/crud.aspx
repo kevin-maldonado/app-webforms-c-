@@ -395,7 +395,7 @@
                                           <%-- <%--filtracion de datos--%>    
                                         <div id="example_filter" class="dataTables_filter">
                                             <label>Buscar:
-                                                <asp:TextBox ID="Textfiltro" runat="server" class="form-control" placeholder="Nombres" ></asp:TextBox></label>
+                                                <asp:TextBox ID="Textfiltro" runat="server" class="form-control" placeholder="Codigo" ></asp:TextBox></label>
                                             <asp:Button ID="btnfilter" runat="server" CssClass=" btn btn-secondary" OnClick="btnFiltrar_Click" Text="Buscar" />
                                         </div>
 
@@ -408,9 +408,15 @@
                                                      <tr>
                                              
                                                          <td >
-                                                             <asp:GridView 
-                                                                 AllowPaging="True" AutoGenerateColumns="False" DataSourceID="LinqDataSource" ID="GridDatos" PageSize="<%# PAGE_SIZE %>" runat="server" Width="100%"
-                                                                 >
+                                                             
+
+                                                             <asp:ScriptManager ID="ScriptManager1" runat="server">
+                                                             </asp:ScriptManager>
+                                                             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                                                 <ContentTemplate>
+
+                                                             <asp:Timer ID="Timer1" runat="server" Interval="1000" OnTick="Timer1_Tick1"></asp:Timer>
+                                                                <asp:GridView  AllowPaging="True" AutoGenerateColumns="False" DataSourceID="LinqDataSource" ID="GridDatos" PageSize="<%# PAGE_SIZE %>" runat="server" Width="100%">
                                                                  <AlternatingRowStyle BackColor="White" />
                                                                  <Columns>
                                                                      <asp:BoundField DataField="Codigo" HeaderText="Codigo" ReadOnly="True" SortExpression="Codigo" />
@@ -421,7 +427,7 @@
                                                                  </Columns>
                                                                  <FooterStyle BackColor="#4e73df" Font-Bold="True" ForeColor="White" />
                                                                  <HeaderStyle BackColor="#4e73df" Font-Bold="True" ForeColor="White" />
-                                                                 <PagerSettings FirstPageText="Primera" LastPageText="Ultima" NextPageText="Siguiente" PreviousPageText="Anterior" />
+                                                                 <PagerSettings FirstPageText="Primera" LastPageText="Ultima" NextPageText="Siguiente" PreviousPageText="Anterior" Mode="NumericFirstLast" />
                                                                  <PagerStyle BackColor="#4e73df" ForeColor="White" HorizontalAlign="Center" CssClass="pagination-mg" />
                                                                  <RowStyle BackColor="#F3F6F7" ForeColor="#333333" />
                                                                  <SelectedRowStyle BackColor="#9DA1A2" Font-Bold="True" ForeColor="Navy" />
@@ -438,6 +444,12 @@
                                                                                                 
                                                                  </asp:LinqDataSource>
                                                              
+<br />
+                                                                 </ContentTemplate>
+                                                             </asp:UpdatePanel>
+
+                                                             <br />
+                                                            
                                                          </td>
                                                      </tr>                          
                                                </table>

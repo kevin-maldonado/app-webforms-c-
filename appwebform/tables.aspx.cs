@@ -74,7 +74,7 @@ namespace appwebform
 
             gdvLista.DataSource = from Alumnos in db.Alumnos
                                    where Alumnos.Nombres == client
-                                   orderby Alumnos.Nombres
+                                   orderby Alumnos.Codigo
                                    select Alumnos;
             gdvLista.DataBind();
 

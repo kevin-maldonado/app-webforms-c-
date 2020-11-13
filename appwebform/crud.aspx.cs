@@ -13,11 +13,11 @@ namespace appwebform
         
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (!Page.IsPostBack)
             {
                 btnBorrar.Attributes.Add("OnClick", "return confirm('¿Desea eliminar el Cliente?');");
                 Carga();
-                //BindGrid();
+
             }
 
         }
@@ -40,6 +40,8 @@ namespace appwebform
             query = query.Skip(GridDatos.PageIndex * PAGE_SIZE).Take(PAGE_SIZE);
 
             e.Result = query;
+
+
         }
 
 
@@ -145,6 +147,7 @@ namespace appwebform
             {
                 GridDatos.PageIndex = e.NewPageIndex;
                 this.GridDatos.DataBind();
+
             }
             catch (Exception ex)
             {
@@ -159,30 +162,32 @@ namespace appwebform
         //para filtrar por nombres
         protected void btnFiltrar_Click(object sender, EventArgs e)
         {
-            //string client = Textfiltro.Text;
 
-            //DataClassesDataContext db = new DataClassesDataContext();
-
-            //GridDatos.DataSource = from Alumnos in db.Alumnos
-            //                      where Alumnos.Nombres == client
-            //                      orderby Alumnos.Nombres
-            //                      select Alumnos;
-            //GridDatos.DataBind();
+            DataClassesDataContext db = new DataClassesDataContext();
 
             ////reset page index to 0
             //GridDatos.PageIndex = 0;
+            int codi = int.Parse(this.Textfiltro.Text);
+            var query = from alumnos in db.Alumnos
+                        where alumnos.Codigo == codi
+                        select alumnos;
+            
+             this.GridDatos.DataBind();
+
+            //reset page index to 0
+           
 
 
         }
-        //metodo para filtrar datos por nombres
-        //private void BindGrid()
-        //{
-        //    DataClassesDataContext db = new DataClassesDataContext();
 
-        //    GridDatos.DataSource = from Alumnos in db.Alumnos
-        //                          orderby Alumnos.Nombres
-        //                          select Alumnos;
-        //    GridDatos.DataBind();
-        //}
+        protected void Timer1_Tick(object sender, EventArgs e)
+        {
+            GridDatos.DataBind();
+        }
+
+        protected void Timer1_Tick1(object sender, EventArgs e)
+        {
+            this.GridDatos.DataBind();
+        }
     }
 }
